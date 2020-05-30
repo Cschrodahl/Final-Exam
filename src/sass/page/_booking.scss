@@ -1,0 +1,16 @@
+.bookingList {
+  flex-wrap: wrap;
+  text-align: center;
+  &__col {
+    border: solid $grey 1px;
+    border-radius: 5px;
+    margin: 10px auto;
+    img {
+      width: 300px;
+      height: 200px;
+    }
+  }
+  &__col:hover {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,128 @@
+header {
+  width: 100%;
+  height: auto;
+  background-color: $main-green;
+  position: absolute;
+  z-index: 10;
+  #Logo {
+    display: inline-block;
+    margin: auto;
+    padding: 5px;
+    margin: 5px;
+    color: #fff;
+    width: 110px;
+  }
+  .hamburgerNav {
+    display: none;
+  }
+  .topMenu {
+    display: inline-block;
+    margin: auto;
+    text-align: right;
+    &__link {
+      font-size: 18px;
+      padding: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    &__link:hover {
+      opacity: 0.5;
+    }
+    &__loginBtn {
+      font-size: 18px;
+      background-color: $yellow;
+      padding: 5px;
+      outline: none;
+      border: 1px solid $yellow;
+      border-radius: 5px;
+      color: #fff;
+    }
+    &__loginBtn:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    &__window {
+      display: none;
+      &--Active {
+        display: block;
+        position: fixed;
+        right: 5%;
+        width: 200px;
+        height: auto;
+        border: $grey solid 1px;
+        padding: 10px;
+        background-color: $white;
+      }
+    }
+    &__userStatus {
+      text-align: center;
+    }
+    &__settingbutton {
+      text-decoration: none;
+      text-align: center;
+      margin: 5px auto;
+      display: block;
+      border: none;
+      background-color: $white;
+    }
+    &__settingbutton:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    &__settingbutton:visited {
+      color: inherit;
+    }
+  }
+}
+@media #{$tablet}, #{$phone} {
+  header {
+    position: fixed;
+
+    #Logo {
+      display: block;
+      margin: auto;
+    }
+    .topMenu {
+      display: none;
+      &__link {
+        display: block;
+        text-align: center;
+      }
+      &__loginBtn {
+        display: block;
+        margin: auto;
+      }
+      &__window {
+        &--Active {
+          margin: auto;
+          position: relative;
+        }
+      }
+    }
+    .hamburgerNav {
+      position: absolute;
+      width: 35px;
+      height: auto;
+      right: 5%;
+      padding: 5px;
+      margin: 10px;
+      display: block;
+      cursor: pointer;
+      &__span {
+        color: $white;
+        width: 100%;
+        padding: 3px 0;
+        display: block;
+        border-bottom: 3px solid;
+      }
+    }
+    #Active {
+      display: block;
+    }
+    @media #{$phone} {
+      #Active {
+        height: 100vmax;
+      }
+    }
+  }
+}

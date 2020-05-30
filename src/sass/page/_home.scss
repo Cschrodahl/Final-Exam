@@ -1,0 +1,57 @@
+.categorySection {
+  background-color: $main-green;
+  margin: auto;
+  padding: 0 10%;
+  height: 6vw;
+  display: flex;
+  &__buttons {
+    background-color: $yellow;
+    color: $white;
+    text-decoration: none;
+    width: 25%;
+    height: 100%;
+    line-height: 6vw;
+    margin: -3% auto;
+    text-align: center;
+  }
+  @media #{$tablet} {
+    height: 8vw;
+    &__buttons {
+      margin: -5% auto;
+      line-height: 8vw;
+    }
+  }
+  @media #{$phone} {
+    height: 10vw;
+    &__buttons {
+      margin: -6% auto;
+      line-height: 10vw;
+    }
+  }
+}
+.iconSection {
+  padding: 10px 0;
+  &__h2 {
+    display: block;
+    text-align: center;
+  }
+  &__box {
+    margin: 5px;
+  }
+  &__icon {
+    margin: auto;
+    width: 120px;
+    height: 120px;
+    img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  &__h3 {
+    text-align: center;
+  }
+  &__text {
+    margin: auto;
+    width: 80%;
+  }
+}

@@ -1,0 +1,38 @@
+.contactInformationBox {
+  &__box {
+    padding: 10px;
+    color: $white;
+    margin: 10px auto;
+    width: 80%;
+    background-color: $yellow;
+    border: solid $yellow 1px;
+    border-radius: 5px;
+  }
+  &__link {
+    display: block;
+    margin-top: 5px;
+    color: $white;
+  }
+  &__socialIcon {
+    margin-top: 10px;
+    padding: 5px;
+  }
+  &__icon {
+    width: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  &__img {
+    width: 70px;
+    display: block;
+    height: auto;
+    margin: auto;
+  }
+}
+@media #{$tablet}, #{$phone} {
+  .contactInformationBox {
+    &__box {
+      width: 95%;
+    }
+  }
+}

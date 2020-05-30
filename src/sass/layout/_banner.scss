@@ -1,0 +1,90 @@
+.introBannerHomePage {
+  height: 600px;
+}
+.introBannersubSites {
+  height: 300px;
+}
+
+.introBanner {
+  background-image: url("../../images/home-header.jpg");
+  width: 100%;
+  &__content {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+  }
+  &__searchField {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+  }
+  &__h1 {
+    text-align: center;
+    color: $white;
+  }
+  .search {
+    &__input {
+      vertical-align: middle;
+      width: 40%;
+      height: 25px;
+      padding: 5px;
+      border: $grey 1px solid;
+      border-radius: 5px 0px 0px 5px;
+    }
+    &__button {
+      width: 5%;
+      height: 37px;
+      vertical-align: middle;
+      background-color: $yellow;
+      color: $white;
+      border: $yellow 1px solid;
+      border-radius: 0px 5px 5px 0px;
+    }
+    &__icon {
+      width: 90%;
+    }
+    &__button:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    &__result {
+      background-color: $white;
+      width: 45%;
+      margin: auto;
+      padding: 1%;
+    }
+  }
+}
+@media #{$desktop} {
+  .introBannerHomePage {
+    height: 500px;
+  }
+  .introBanner {
+    background-image: url("../../images/home-header.jpg");
+    &__content {
+      top: 20%;
+    }
+  }
+}
+@media #{$tablet} {
+  .introBannerHomePage {
+    height: 400px;
+  }
+  .introBanner {
+    background-image: url("../../images/home-header.jpg");
+    &__content {
+      top: 15%;
+    }
+  }
+}
+@media #{$phone} {
+  .introBannerHomePage {
+    height: 300px;
+  }
+  .introBanner {
+    background-image: url("../../images/home-header.jpg");
+    &__content {
+      top: 10%;
+    }
+  }
+}

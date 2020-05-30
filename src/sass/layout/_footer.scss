@@ -1,0 +1,48 @@
+footer {
+  background-color: $semiDark-green;
+  flex-shrink: 0;
+  .footerContent {
+    margin: auto;
+    padding: 15px;
+    color: $white;
+    &__link {
+      color: $white;
+      display: block;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    &__link:hover {
+      text-decoration: underline;
+      opacity: 0.7;
+    }
+    &__input {
+      height: 30px;
+      border: solid 1px $grey;
+      padding-left: 5px;
+      border-radius: 5px 0 0 5px;
+    }
+    &__button {
+      border: solid 1px $yellow;
+      background-color: $yellow;
+      color: $white;
+      border-radius: 0 5px 5px 0;
+      height: 34px;
+    }
+    @media #{$tablet}, #{$phone} {
+      padding: 5px;
+      &__col:nth-child(-n + 2) {
+        display: none;
+      }
+      &__input {
+        width: 50%;
+      }
+    }
+  }
+  .footerCopy {
+    color: $white;
+    text-align: center;
+    display: block;
+    background-color: $dark-green;
+    padding: 25px 0;
+  }
+}

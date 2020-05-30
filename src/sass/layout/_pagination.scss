@@ -1,0 +1,15 @@
+.pagination {
+  display: table;
+  margin: auto;
+  &__btn {
+    display: inline-block;
+    padding: 10px;
+    border: solid $grey 1px;
+  }
+  &__btn:hover {
+    text-decoration: underline;
+    background-color: $main-green;
+    color: $white;
+    cursor: pointer;
+  }
+}
