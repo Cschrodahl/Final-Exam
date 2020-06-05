@@ -14,3 +14,19 @@
     cursor: pointer;
   }
 }
+.filterEstablishments {
+  background-color: $yellow;
+  padding: 15px;
+  margin: 15px auto;
+  text-align: center;
+  &__label {
+    margin: auto;
+    color: $white;
+  }
+  &__input,
+  &__dropdown {
+    padding: 10px 10px;
+    width: 70%;
+    margin-left: 5px;
+  }
+}

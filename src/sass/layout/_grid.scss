@@ -45,7 +45,8 @@
     }
   }
 }
-@media #{$phone} {
+
+@media #{$tablet}, #{$phone} {
   .container {
     width: 95%;
   }

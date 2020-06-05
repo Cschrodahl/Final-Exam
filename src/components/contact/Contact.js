@@ -1,7 +1,7 @@
 import React from "react";
 import ContactForm from "./ContactForm";
 import Banner from "../banner/Banner";
-//import ContactInformation from "./ContactInformation";
+
 function Contact() {
   return (
     <>
@@ -12,5 +12,5 @@ function Contact() {
     </>
   );
 }
-//<ContactInformation />
+
 export default Contact;

@@ -53,7 +53,7 @@ function Login() {
           ref={register}
         />
 
-        <button className="form__button" type="submit">
+        <button className="form__submit" type="submit">
           Submit
         </button>
       </form>

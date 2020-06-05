@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "../search/Search";
 function Banner({ backgroundImageSize, ifIntroText }) {
+  //Checking if this is on Home page. If not. introtext doesnt show.
   return (
     <section className={`introBanner ${backgroundImageSize}`}>
       <div className="introBanner__content">

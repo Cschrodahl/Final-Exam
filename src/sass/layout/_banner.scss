@@ -8,10 +8,14 @@
 .introBanner {
   background-image: url("../../images/home-header.jpg");
   width: 100%;
+  position: relative;
   &__content {
+    margin: 0;
     position: absolute;
-    top: 25%;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
   }
   &__searchField {
     text-align: center;
@@ -25,15 +29,13 @@
   .search {
     &__input {
       vertical-align: middle;
-      width: 40%;
-      height: 25px;
-      padding: 5px;
+      width: 80%;
+      padding: 14px 5px;
       border: $grey 1px solid;
       border-radius: 5px 0px 0px 5px;
     }
     &__button {
-      width: 5%;
-      height: 37px;
+      padding: 10px;
       vertical-align: middle;
       background-color: $yellow;
       color: $white;
@@ -41,7 +43,7 @@
       border-radius: 0px 5px 5px 0px;
     }
     &__icon {
-      width: 90%;
+      width: 20px;
     }
     &__button:hover {
       cursor: pointer;
@@ -49,9 +51,11 @@
     }
     &__result {
       background-color: $white;
-      width: 45%;
+      width: 85%;
+      border: solid 1px $grey;
+      border-radius: 0px 0px 5px 5px;
       margin: auto;
-      padding: 1%;
+      padding: 15px;
     }
   }
 }
@@ -61,9 +65,6 @@
   }
   .introBanner {
     background-image: url("../../images/home-header.jpg");
-    &__content {
-      top: 20%;
-    }
   }
 }
 @media #{$tablet} {
@@ -73,7 +74,7 @@
   .introBanner {
     background-image: url("../../images/home-header.jpg");
     &__content {
-      top: 15%;
+      width: 50%;
     }
   }
 }
@@ -84,7 +85,7 @@
   .introBanner {
     background-image: url("../../images/home-header.jpg");
     &__content {
-      top: 10%;
+      width: 90%;
     }
   }
 }

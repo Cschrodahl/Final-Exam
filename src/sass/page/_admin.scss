@@ -1,3 +1,12 @@
+.adminHeader {
+  height: 160px;
+  &__header {
+    margin: 0;
+    text-align: center;
+    position: relative;
+    top: 65%;
+  }
+}
 .adminNavigation {
   background-color: $main-green;
   color: $white;
@@ -5,16 +14,21 @@
   margin: 10px;
   border: solid 1px $main-green;
   border-radius: 5px;
+  &__toggle {
+    display: none;
+  }
   &__links {
     display: block;
     padding: 5px;
     margin: 3px 0;
     text-decoration: none;
+    color: $white;
   }
   &__links:hover {
     text-decoration: underline;
   }
 }
+
 .dashboardList {
   border-collapse: collapse;
   margin: 10px;
@@ -45,5 +59,25 @@
   &__editBtn:hover {
     opacity: 0.7;
     cursor: pointer;
+  }
+}
+@media #{$phone} {
+  .adminNavigation {
+    display: none;
+    &__toggle {
+      display: block;
+    }
+  }
+  .dashboardList {
+    &__head {
+      th:not(:first-child):not(:last-child) {
+        display: none;
+      }
+    }
+    &__body {
+      td:not(:first-child):not(:last-child) {
+        display: none;
+      }
+    }
   }
 }

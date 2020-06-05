@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import { StateHandler } from "../../context/StateHandler";
-function Modal({ modalType }) {
-  const { closeModal } = useContext(StateHandler);
+import React from "react";
+
+function Modal({ modalContent, displayModal, modified }) {
   return (
-    <div className="modal">
+    <div className={`modal${modified ? modified : ""}`}>
       <div className="container">
-        <span onClick={() => closeModal()}>X</span>
-        {modalType}
+        <span onClick={() => displayModal(null)}>X</span>
+        {modalContent}
       </div>
     </div>
   );

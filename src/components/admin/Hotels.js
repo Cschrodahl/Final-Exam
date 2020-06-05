@@ -1,43 +1,23 @@
-import React, { useState, useEffect, useContext } from "react";
-import { BASE_URL, headers } from "../../constant/api";
+import React, { useState, useContext } from "react";
+import { HotelContext } from "../../context/HotelContext";
 import Pagination from "../pagination/Pagination";
-import Modal from "../modal/Modal";
 import EditHotel from "./EditHotel";
-import { StateHandler } from "../../context/StateHandler";
 import AddHotel from "./AddHotel";
+import OpenModal from "../modal/OpenModal";
 function Hotels() {
-  const [hotels, setHotels] = useState([]);
+  const { hotelsGet } = useContext(HotelContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [establishmentsPerPage] = useState(6);
-  const { stateValue, openModal } = useContext(StateHandler);
-  const url = BASE_URL + "establishments";
 
-  const options = { headers };
-
-  useEffect(() => {
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((json) => {
-        setHotels(json);
-      })
-      .catch((error) => console.log(error));
-  }, [url, options]);
   const indexOfLastItem = currentPage * establishmentsPerPage;
   const indexOfFirstItem = indexOfLastItem - establishmentsPerPage;
-  const currentItems = hotels.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = hotelsGet.slice(indexOfFirstItem, indexOfLastItem);
   const goToPage = (page) => setCurrentPage(page);
-  const numberOfEstablishments = hotels.length;
-  function openingModal(addHotel) {
-    openModal(() => {
-      return <Modal modalType={addHotel} />;
-    });
-  }
+  const numberOfEstablishments = hotelsGet.length;
+
   return (
     <>
-      {stateValue ? stateValue : null}
-      <button onClick={() => openingModal(<AddHotel />)}>
-        Create new item
-      </button>
+      <OpenModal buttonText="Create new" modalContent={<AddHotel />} />
       <table className="dashboardList">
         <thead className="dashboardList__head">
           <tr>
@@ -48,25 +28,24 @@ function Hotels() {
           </tr>
         </thead>
         <tbody className="dashboardList__body">
-          {currentItems.map((hotel) => {
-            return (
-              <tr key={hotel.id}>
-                <td>
-                  <button
-                    className="dashboardList__editBtn"
-                    onClick={() => {
-                      openingModal(<EditHotel id={hotel.id} />);
-                    }}
-                  >
-                    {hotel.name}
-                  </button>
-                </td>
-                <td>{hotel.email}</td>
-                <td>{hotel.price}</td>
-                <td>{hotel.description}</td>
-              </tr>
-            );
-          })}
+          {hotelsGet
+            ? currentItems.map((hotel) => {
+                return (
+                  <tr key={hotel.id} id={hotel.id}>
+                    <td>
+                      <OpenModal
+                        buttonClassName="dashboardList__editBtn"
+                        modalContent={<EditHotel id={hotel.id} />}
+                        buttonText={hotel.name}
+                      ></OpenModal>
+                    </td>
+                    <td>{hotel.email}</td>
+                    <td>{hotel.price}</td>
+                    <td>{hotel.description}</td>
+                  </tr>
+                );
+              })
+            : null}
         </tbody>
       </table>
       <Pagination

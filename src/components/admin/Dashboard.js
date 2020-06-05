@@ -1,11 +1,12 @@
 import React from "react";
-import Banner from "../banner/Banner";
 import DashboardList from "./DashboardList";
+import Hotels from "./Hotels";
+import DashBoardHeader from "./DashboardHeader";
 function Dashboard() {
   return (
     <div>
-      <Banner backgroundImageSize="introBannersubSites" />
-      <DashboardList />
+      <DashBoardHeader headerText="Establishment list" />
+      <DashboardList listName={<Hotels />} />
     </div>
   );
 }

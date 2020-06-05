@@ -1,13 +1,51 @@
 import React from "react";
-import PropTypes from "prop-types";
-function EstablishmentFilter({ filterOnChange }) {
+import { useForm } from "react-hook-form";
+function EstablishmentFilter({ setFilterList }) {
+  const { register, handleSubmit } = useForm();
+  function onchangeFilter(data) {
+    setFilterList(data);
+  }
+
   return (
-    <form onChange={(e) => filterOnChange(e)}>
-      <input type="number" name="price" />
+    <form
+      onChange={handleSubmit(onchangeFilter)}
+      className="filterEstablishments row"
+    >
+      <label className="filterEstablishments__label col3">
+        Category:
+        <select
+          ref={register}
+          name="category"
+          className="filterEstablishments__dropdown"
+        >
+          <option>Show all</option>
+          <option>Hotels</option>
+          <option>Guest houses</option>
+          <option>{"B&B"}</option>
+        </select>
+      </label>
+      <label className="filterEstablishments__label col3">
+        Price:
+        <input
+          ref={register}
+          className="filterEstablishments__input"
+          type="number"
+          name="price"
+          placeholder="From"
+        />
+      </label>
+      <label className="filterEstablishments__label col3">
+        Guests:
+        <input
+          ref={register}
+          className="filterEstablishments__input"
+          type="number"
+          name="maxGuests"
+          placeholder="Any"
+        />
+      </label>
     </form>
   );
 }
-EstablishmentFilter.propTypes = {
-  filterOnChange: PropTypes.func.isRequired,
-};
+
 export default EstablishmentFilter;

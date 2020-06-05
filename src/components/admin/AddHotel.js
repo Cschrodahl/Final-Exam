@@ -9,11 +9,13 @@ function AddHotel() {
   const history = useHistory();
 
   async function onSubmit(data) {
-    console.log("data", data);
-
     const url = BASE_URL + "establishments";
 
-    const options = { headers, method: "POST", body: JSON.stringify(data) };
+    const options = {
+      headers,
+      method: "POST",
+      body: JSON.stringify(data),
+    };
 
     await fetch(url, options);
 
@@ -21,78 +23,107 @@ function AddHotel() {
   }
 
   return (
-    <form className="hotelForm" onSubmit={handleSubmit(onSubmit)}>
+    <form className="adminForms" onSubmit={handleSubmit(onSubmit)}>
       <h3>Add Hotel</h3>
-
-      <label className="hotelForm__label">
-        Name
+      <div className="adminForms__col2">
+        <label className="adminForms__label">Name</label>
         <input
-          className="hotelForm__input"
+          className="adminForms__input"
           name="name"
           placeholder="Enter a name for the hotel"
           ref={register}
         />
-      </label>
-      <label className="hotelForm__label">
-        Email
+      </div>
+      <div className="adminForms__col2">
+        <label className="adminForms__label">Email</label>
         <input
-          className="hotelForm__input"
+          className="adminForms__input"
           name="email"
           placeholder="Enter an email address"
           ref={register}
         />
-      </label>
+      </div>
+      <div className="adminForms__col1">
+        <div className="adminForms__col2">
+          <label className="adminForms__label">Price</label>
+          <input
+            className="adminForms__input"
+            name="price"
+            type="number"
+            placeholder="Enter the price"
+            ref={register}
+          />
+        </div>
+        <div className="adminForms__col2">
+          <label className="adminForms__label">Max guests</label>
+          <input
+            className="adminForms__input"
+            name="maxGuests"
+            type="number"
+            placeholder="Enter the price"
+            ref={register}
+          />
+        </div>
+      </div>
+      <div className="adminForms__col1">
+        <div className="adminForms__col2">
+          <label className="adminForms__label">Google coordinate</label>
+          <input
+            className="adminForms__input"
+            name="lat"
+            type="number"
+            placeholder="Enter latitude"
+            ref={register}
+          />
+        </div>
+        <div className="adminForms__col2">
+          <input
+            className="adminForms__input"
+            name="lng"
+            type="number"
+            placeholder="Enter longditude"
+            ref={register}
+          />
+        </div>
+      </div>
+      <div className="adminForms__col1">
+        <label className="adminForms__label">Image url</label>
+        <input
+          className="adminForms__input"
+          name="image"
+          type="text"
+          placeholder="Enter Image url"
+          ref={register}
+        />
+      </div>
+      <div className="adminForms__col1">
+        <label className="adminForms__label">Self-catering</label>
+        <label className="adminForms__label--radio">True:</label>
+        <input
+          className="adminForms__input--radio"
+          name="selfCatering"
+          type="radio"
+          ref={register}
+        />
 
-      <label className="hotelForm__label">Price</label>
-      <input
-        className="hotelForm__input"
-        name="price"
-        type="number"
-        placeholder="Enter the price"
-        ref={register}
-      />
-      <label className="hotelForm__label">
-        Google coordinate
+        <label className="adminForms__label--radio">False:</label>
         <input
-          className="hotelForm__input"
-          name="lat"
-          type="number"
-          placeholder="Enter latitude"
+          className="adminForms__input--radio"
+          name="selfCatering"
+          type="radio"
           ref={register}
+          checked
         />
-        <input
-          className="hotelForm__input"
-          name="lng"
-          type="number"
-          placeholder="Enter longditude"
-          ref={register}
-        />
-      </label>
-      <label className="hotelForm__label">Max guests</label>
-      <input
-        className="hotelForm__input"
-        name="maxGuests"
-        type="number"
-        placeholder="Enter the price"
-        ref={register}
-      />
-      <label className="hotelForm__label">Image url</label>
-      <input
-        className="hotelForm__input"
-        name="image"
-        type="text"
-        placeholder="Enter Image url"
-        ref={register}
-      />
-      <label className="hotelForm__label">Descritpion</label>
+      </div>
+      <label className="adminForms__label">Descritpion</label>
       <textarea
-        className="hotelForm__textarea"
+        className="adminForms__textarea"
         name="description"
         placeholder="Enter description"
         ref={register}
       />
 
-      <button className="hotelForm__btn" type="submit">
+      <button className="adminForms__button" type="submit">
         Submit
       </button>
     </form>

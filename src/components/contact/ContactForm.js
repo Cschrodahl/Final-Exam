@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import { BASE_URL, headers } from "../../constant/api";
 import * as yup from "yup";
 import FormError from "./FormError";
 import FormSubmitted from "./FormSubmitted";
 import ContactInformation from "./ContactInformation";
 const schema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
+  name: yup.string().required("First name is required"),
   email: yup
     .string()
     .email("Please enter a valid email")
@@ -18,18 +19,19 @@ const schema = yup.object().shape({
 });
 
 function ContactForm() {
+  const history = useHistory();
   const [validated, setValidated] = useState(false);
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
 
-  function onSubmit(data, event) {
-    console.log("data", data);
-    event.target.reset();
-
+  async function onSubmit(data) {
+    const url = BASE_URL + "contacts/";
+    const options = { headers, method: "POST", body: JSON.stringify(data) };
     setValidated(true);
-
     setTimeout(() => setValidated(false), 3000);
+    await fetch(url, options);
+    history.go();
   }
 
   return (
@@ -41,7 +43,7 @@ function ContactForm() {
             <label className="contactForm__label">Full Name</label>
             <input
               className="contactForm__input"
-              name="fullName"
+              name="name"
               placeholder="Enter your full name"
               ref={register}
             />
@@ -62,7 +64,6 @@ function ContactForm() {
               className="contactForm__input"
               name="subject"
               placeholder="Select a subject"
-              ref={register}
             >
               <option>Support</option>
               <option>Booking</option>

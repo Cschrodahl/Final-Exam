@@ -1,36 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import SearchField from "./SearchField";
-import { BASE_URL, headers } from "../../constant/api";
+//import { BASE_URL, headers } from "../../constant/api";
+import { HotelContext } from "../../context/HotelContext";
 
 function Search() {
-  const [searchResult, setSearchResult] = useState([]);
-  const [filteredHotels, setFilteredHotels] = useState([]);
-  const url = BASE_URL + "establishments";
-  const options = { headers };
+  const { filterResult, filteredHotelsGlobal } = useContext(HotelContext);
 
-  useEffect(() => {
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((json) => {
-        setSearchResult(json);
-      })
-      .catch((error) => console.log(error));
-  }, [setSearchResult]);
-
-  const filterResult = function (e) {
-    const searchValue = e.target.value.toLowerCase();
-
-    const filteredArray = searchResult.filter(function (char) {
-      const lowerCaseName = char.name.toLowerCase();
-
-      if (lowerCaseName.startsWith(searchValue) && searchValue !== "") {
-        return true;
-      }
-      return false;
-    });
-    setFilteredHotels(filteredArray);
-  };
-  console.log(filteredHotels);
-  return <SearchField handleSearch={filterResult} result={filteredHotels} />;
+  return (
+    <SearchField handleSearch={filterResult} result={filteredHotelsGlobal} />
+  );
 }
 export default Search;

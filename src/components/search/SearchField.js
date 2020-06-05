@@ -11,24 +11,26 @@ function SearchField({ handleSearch, result }) {
   }
 
   return (
-    <form
-      className="introBanner__searchField search"
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <input
-        className="search__input"
-        name="value"
-        placeholder="Establishments, hotels"
-        onChange={(event) => handleSearch(event)}
-        ref={register}
-      />
-      <button className="search__button" type="submit">
-        <img
-          className="search__icon"
-          src={require("../../images/Icons/search.png")}
-          alt="Search icon"
+    <>
+      <form
+        className="introBanner__searchField search"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <input
+          className="search__input"
+          name="value"
+          placeholder="Establishments, hotels"
+          onChange={(event) => handleSearch(event)}
+          ref={register}
         />
-      </button>
+        <button className="search__button" type="submit">
+          <img
+            className="search__icon"
+            src={require("../../images/Icons/search.png")}
+            alt="Search icon"
+          />
+        </button>
+      </form>
       <div className={result.length > 0 ? "search__result" : null}>
         {result.map((Result, index) => {
           return (
@@ -42,7 +44,7 @@ function SearchField({ handleSearch, result }) {
           );
         })}
       </div>
-    </form>
+    </>
   );
 }
 export default SearchField;

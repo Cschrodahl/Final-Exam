@@ -6,16 +6,26 @@ h3,
 h4,
 button,
 a,
-label {
+label,
+span {
   font-family: "Montserrat", sans-serif;
 }
 h1 {
   font-size: 45px;
 }
-
+a,
+button,
+input {
+  font-size: 14px;
+}
 p {
   font-family: "Lato", sans-serif;
   font-size: 14px;
+}
+button,
+span,
+a:hover {
+  cursor: pointer;
 }
 @media #{$tablet}, #{$phone} {
   h1 {

@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import { BASE_URL, headers, DELETE } from "../../constant/api";
-import { StateHandler } from "../../context/StateHandler";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
 function DeleteHotel(props) {
   const history = useHistory();
-  const { closeModal } = useContext(StateHandler);
 
   function checkDelete() {
     confirmAlert({
@@ -17,7 +15,7 @@ function DeleteHotel(props) {
           label: "yes",
           onClick: () => {
             deleteHotel();
-            closeModal();
+            history.go();
           },
         },
         {
@@ -35,7 +33,11 @@ function DeleteHotel(props) {
   }
 
   return (
-    <button variant="danger" onClick={checkDelete}>
+    <button
+      className="adminForms__delete"
+      variant="danger"
+      onClick={checkDelete}
+    >
       Delete
     </button>
   );

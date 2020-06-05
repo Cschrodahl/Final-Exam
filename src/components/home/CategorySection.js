@@ -1,16 +1,17 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 function CategorySection() {
   return (
     <section className="categorySection">
-      <a href="!#" className="categorySection__buttons">
+      <NavLink to="/booking" className="categorySection__buttons">
         Hotell
-      </a>
-      <a href="!#" className="categorySection__buttons">
+      </NavLink>
+      <NavLink to="/booking" className="categorySection__buttons">
         BB
-      </a>
-      <a href="!#" className="categorySection__buttons">
+      </NavLink>
+      <NavLink to="/booking" className="categorySection__buttons">
         Guesthouse
-      </a>
+      </NavLink>
     </section>
   );
 }

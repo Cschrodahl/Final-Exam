@@ -13,6 +13,7 @@
     line-height: 6vw;
     margin: -3% auto;
     text-align: center;
+    z-index: 1;
   }
   @media #{$tablet} {
     height: 8vw;
@@ -22,8 +23,10 @@
     }
   }
   @media #{$phone} {
+    padding: 0 3%;
     height: 10vw;
     &__buttons {
+      width: 32%;
       margin: -6% auto;
       line-height: 10vw;
     }

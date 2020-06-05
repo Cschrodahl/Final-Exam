@@ -1,9 +1,23 @@
 .modal {
-  height: 70%;
   width: 70%;
   background-color: $white;
   position: absolute;
   top: 15%;
   left: 15%;
   z-index: 20;
+  border: solid 2px $grey;
+  padding: 10px;
+  border-radius: 5px;
+
+  &--enquiry {
+    width: 40%;
+    background-color: $white;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    z-index: 20;
+    border: solid 2px $grey;
+    padding: 10px;
+    border-radius: 5px;
+  }
 }

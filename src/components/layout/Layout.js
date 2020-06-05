@@ -11,11 +11,12 @@ import LoginModal from "./navigation/LoginModal";
 import { AuthContextProvider } from "../../context/AuthContext";
 import Footer from "./Footer";
 import Dashboard from "../admin/Dashboard";
-import Enquiries from "../admin/Enquiries";
-import { StateContext } from "../../context/StateHandler";
 import EstablishmentList from "../booking/EstablishmentList";
 import EstablishmentDetails from "../booking/EstablishmentDetails";
 import Contact from "../contact/Contact";
+import ContactAdmin from "../admin/contacts/Contacts";
+import EnquiriesDashboard from "../admin/enquiries/EnquiriesDashboard";
+import { HotelContextProvider } from "../../context/HotelContext";
 function Layout({ ref, activeId }) {
   activeId = "";
   const navRef = useRef(null);
@@ -30,26 +31,43 @@ function Layout({ ref, activeId }) {
 
   return (
     <AuthContextProvider>
-      <StateContext>
+      <HotelContextProvider>
         <Router>
           <header>
             <div className="container row row__direction--column">
-              <NavLink className="col2" to="/" exact>
-                <img
-                  id="Logo"
-                  src={require("../../images/Logo.png")}
-                  alt="Logo"
-                />
-              </NavLink>
+              <div className="col2">
+                <NavLink to="/" exact>
+                  <img
+                    id="Logo"
+                    src={require("../../images/Logo.png")}
+                    alt="Logo"
+                  />
+                </NavLink>
+              </div>
               <NavHamburger toggleNav={toggleNav} />
               <nav id={activeId} className="topMenu" ref={navRef}>
-                <NavLink to="/" exact className="topMenu__link">
+                <NavLink
+                  to="/"
+                  exact
+                  className="topMenu__link"
+                  onClick={toggleNav}
+                >
                   Home
                 </NavLink>
-                <NavLink to="/booking" exact className="topMenu__link">
+                <NavLink
+                  to="/booking"
+                  exact
+                  className="topMenu__link"
+                  onClick={toggleNav}
+                >
                   Booking
                 </NavLink>
-                <NavLink to="/contact" exact className="topMenu__link">
+                <NavLink
+                  to="/contact"
+                  exact
+                  className="topMenu__link"
+                  onClick={toggleNav}
+                >
                   Contact
                 </NavLink>
                 <LoginModal />
@@ -67,12 +85,17 @@ function Layout({ ref, activeId }) {
               />
               <Route path="/contact" exact component={Contact} />
               <Route path="/admin" exact component={Dashboard} />
-              <Route path="/admin/enquiries" exact component={Enquiries} />
+              <Route
+                path="/admin/enquiries"
+                exact
+                component={EnquiriesDashboard}
+              />
+              <Route path="/admin/contacts" exact component={ContactAdmin} />
             </Switch>
           </main>
           <Footer />
         </Router>
-      </StateContext>
+      </HotelContextProvider>
     </AuthContextProvider>
   );
 }
