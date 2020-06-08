@@ -19,7 +19,8 @@ footer {
       border: solid 1px $grey;
       border-radius: 5px 0 0 5px;
       vertical-align: middle;
-      padding: 11px 5px;
+      padding: 8px 5px;
+      width: 60%;
     }
     &__button {
       border: solid 1px $yellow;
@@ -27,7 +28,7 @@ footer {
       color: $white;
       border-radius: 0 5px 5px 0;
       vertical-align: middle;
-      padding: 10px 5px;
+      padding: 7px 5px;
     }
     @media #{$tablet}, #{$phone} {
       padding: 5px;
@@ -35,7 +36,7 @@ footer {
         display: none;
       }
       &__input {
-        width: 50%;
+        width: 30%;
       }
     }
   }

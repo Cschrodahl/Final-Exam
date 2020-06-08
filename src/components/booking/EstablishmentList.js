@@ -5,7 +5,17 @@ import EstablishmentItem from "./EstablishmentItem";
 import EstablishmentFilter from "./EstablishmentFilter";
 function EstablishmentList() {
   const { filteredHotels } = useContext(HotelContext);
-  const [filterHotels, setFilterHotels] = useState([]);
+  const [filterHotels, setFilterHotels] = useState();
+
+  const restult = filteredHotels.filter((a) => {
+    return (
+      !filterHotels ||
+      (a.price >= filterHotels.price &&
+        a.maxGuests >= filterHotels.maxGuests) ||
+      (a.price >= filterHotels.price && !filterHotels.maxGuests)
+    );
+  });
+
   return (
     <div>
       <Banner backgroundImageSize="introBannersubSites" />
@@ -13,8 +23,16 @@ function EstablishmentList() {
       <section className="container">
         <EstablishmentFilter setFilterList={setFilterHotels} />
         <div className="container row bookingList">
-          {filteredHotels.map((hotel, index) => {
-            const { image, name, maxGuests, price, id, desctiption } = hotel;
+          {restult.map((hotel, index) => {
+            const {
+              image,
+              name,
+              maxGuests,
+              price,
+              id,
+              category,
+              desctiption,
+            } = hotel;
             const item = (
               <EstablishmentItem
                 desctiption={desctiption}
@@ -24,14 +42,16 @@ function EstablishmentList() {
                 title={name}
                 price={price}
                 maxGuests={maxGuests}
+                category={category}
               />
             );
-            return price >= filterHotels.price &&
-              maxGuests >= filterHotels.maxGuests
-              ? item
-              : !filterHotels.price && !filterHotels.maxGuests
-              ? item
-              : null;
+            let printResult;
+            if (filterHotels && filterHotels.category === "Show all")
+              printResult = item;
+            else if (filterHotels && filterHotels.category === category)
+              printResult = item;
+            else if (!filterHotels) printResult = item;
+            return printResult;
           })}
         </div>
       </section>

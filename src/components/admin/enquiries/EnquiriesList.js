@@ -20,22 +20,34 @@ export default function EnquiriesList() {
         <thead className="dashboardList__head">
           <tr>
             <th>Title</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Message</th>
+            <th>Check in</th>
+            <th>Check out</th>
           </tr>
         </thead>
         <tbody className="dashboardList__body">
           {enquiries
             ? enquiries.map((enquiries) => {
+                const {
+                  establishmentId,
+                  name,
+                  email,
+                  checkIn,
+                  checkOut,
+                } = enquiries;
+
                 return (
                   <tr key={enquiries.id}>
                     <td>
                       <button className="dashboardList__editBtn">
-                        {enquiries.name}
+                        {establishmentId}
                       </button>
                     </td>
-                    <td>{enquiries.email}</td>
-                    <td>{enquiries.message}</td>
+                    <td>{name}</td>
+                    <td>{email}</td>
+                    <td>{checkIn.split("T")[0]}</td>
+                    <td>{checkOut.split("T")[0]}</td>
                   </tr>
                 );
               })

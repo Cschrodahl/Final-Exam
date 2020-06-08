@@ -52,13 +52,7 @@ function EstablishmentDetails() {
             buttonClassName="establishmentDetail__button"
             buttonText="Book"
             modalModified={"--enquiry"}
-            modalContent={
-              <EnquiryForm
-                API_url={BASE_URL}
-                API_headers={headers}
-                EstablishmentName={name}
-              />
-            }
+            modalContent={<EnquiryForm EstablishmentName={name} />}
           />
         </div>
       </section>

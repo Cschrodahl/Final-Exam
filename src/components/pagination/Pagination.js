@@ -1,13 +1,7 @@
 import React from "react";
 
-function Pagination({
-  establishmentsPerPage,
-  total,
-  goToPage,
-  prevBtn,
-  nextBtn,
-}) {
-  const totalPages = total / establishmentsPerPage;
+function Pagination({ itemsPerPage, total, goToPage, prevBtn, nextBtn }) {
+  const totalPages = total / itemsPerPage;
   const numberOfPages = [...Array(Math.ceil(totalPages)).keys()];
   return (
     <ul className="pagination">

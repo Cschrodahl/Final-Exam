@@ -1,24 +1,22 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-export default function EnquiryForm({
-  API_url,
-  API_headers,
-  EstablishmentName,
-}) {
+import { BASE_URL, headers } from "../../../constant/api";
+export default function EnquiryForm({ EstablishmentName }) {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
 
   async function onSubmit(data) {
-    const url = API_url + "enquiries";
+    const enquiryUrl = BASE_URL + "enquiries";
+
     console.log(data);
-    const options = {
-      API_headers,
+    const enquiryOptions = {
+      headers,
       method: "POST",
       body: JSON.stringify(data),
     };
 
-    await fetch(url, options);
+    await fetch(enquiryUrl, enquiryOptions);
 
     history.go();
   }
@@ -28,14 +26,14 @@ export default function EnquiryForm({
       <label className="bookingForm__label">Establishment: </label>
       <input
         className="bookingForm__input"
-        name="establishment"
+        name="establishmentId"
         defaultValue={EstablishmentName}
         ref={register}
       />
       <label className="bookingForm__label">Full name: </label>
       <input
         className="bookingForm__input"
-        name="clientName"
+        name="name"
         placeholder="Enter your full name"
         ref={register}
       />
@@ -51,7 +49,7 @@ export default function EnquiryForm({
           <label className="bookingForm__label">Check-in</label>
           <input
             className="bookingForm__input--date"
-            name="checkin"
+            name="checkIn"
             type="date"
             ref={register}
           />
@@ -60,7 +58,7 @@ export default function EnquiryForm({
           <label className="bookingForm__label">Check-out</label>
           <input
             className="bookingForm__input--date"
-            name="checkout"
+            name="checkOut"
             type="date"
             ref={register}
           />

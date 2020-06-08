@@ -61,11 +61,18 @@
     cursor: pointer;
   }
 }
+
 @media #{$phone} {
+  #Active {
+    display: block;
+  }
   .adminNavigation {
     display: none;
     &__toggle {
       display: block;
+      position: absolute;
+      top: 10%;
+      left: 2%;
     }
   }
   .dashboardList {

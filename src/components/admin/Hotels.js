@@ -4,6 +4,7 @@ import Pagination from "../pagination/Pagination";
 import EditHotel from "./EditHotel";
 import AddHotel from "./AddHotel";
 import OpenModal from "../modal/OpenModal";
+
 function Hotels() {
   const { hotelsGet } = useContext(HotelContext);
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,7 +15,6 @@ function Hotels() {
   const currentItems = hotelsGet.slice(indexOfFirstItem, indexOfLastItem);
   const goToPage = (page) => setCurrentPage(page);
   const numberOfEstablishments = hotelsGet.length;
-
   return (
     <>
       <OpenModal buttonText="Create new" modalContent={<AddHotel />} />
@@ -28,28 +28,26 @@ function Hotels() {
           </tr>
         </thead>
         <tbody className="dashboardList__body">
-          {hotelsGet
-            ? currentItems.map((hotel) => {
-                return (
-                  <tr key={hotel.id} id={hotel.id}>
-                    <td>
-                      <OpenModal
-                        buttonClassName="dashboardList__editBtn"
-                        modalContent={<EditHotel id={hotel.id} />}
-                        buttonText={hotel.name}
-                      ></OpenModal>
-                    </td>
-                    <td>{hotel.email}</td>
-                    <td>{hotel.price}</td>
-                    <td>{hotel.description}</td>
-                  </tr>
-                );
-              })
-            : null}
+          {currentItems.map((hotel, index) => {
+            return (
+              <tr key={index}>
+                <td>
+                  <OpenModal
+                    buttonClassName="dashboardList__editBtn"
+                    modalContent={<EditHotel id={hotel.id} />}
+                    buttonText={hotel.name}
+                  />
+                </td>
+                <td>{hotel.email}</td>
+                <td>{hotel.price}</td>
+                <td>{hotel.description}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <Pagination
-        establishmentsPerPage={establishmentsPerPage}
+        itemsPerPage={establishmentsPerPage}
         total={numberOfEstablishments}
         goToPage={goToPage}
         nextBtn={
@@ -62,5 +60,10 @@ function Hotels() {
     </>
   );
 }
-
+/**<TableList
+        page={"hotels"}
+        tableHead={["Title", "Email", "Price", "Description"]}
+        tableContentList={currentItems}
+        itemKeys={["name", "email", "price", "description"]}
+      /> */
 export default Hotels;

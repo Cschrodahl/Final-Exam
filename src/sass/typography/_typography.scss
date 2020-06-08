@@ -27,8 +27,19 @@ span,
 a:hover {
   cursor: pointer;
 }
-@media #{$tablet}, #{$phone} {
+@media #{$tablet} {
   h1 {
-    font-size: 2rem;
+    font-size: 32px;
+  }
+}
+@media #{$phone} {
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 16px;
   }
 }

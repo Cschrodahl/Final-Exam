@@ -19,7 +19,7 @@ function EstablishmentFilter({ setFilterList }) {
           className="filterEstablishments__dropdown"
         >
           <option>Show all</option>
-          <option>Hotels</option>
+          <option>Hotel</option>
           <option>Guest houses</option>
           <option>{"B&B"}</option>
         </select>

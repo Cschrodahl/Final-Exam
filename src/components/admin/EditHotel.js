@@ -22,9 +22,11 @@ function EditHotel({ id }) {
       .then((response) => response.json())
       .then((json) => setHotel(json))
       .catch((error) => console.log(error));
-  }, [fetchUrl, options]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function onSubmit(data) {
+    console.log(data);
     const updateOptions = {
       headers,
       method: PATCH,
@@ -106,6 +108,20 @@ function EditHotel({ id }) {
           </div>
         </div>
         <div className="adminForms__col1">
+          <label className="adminForms__label">Category</label>
+          <select
+            className="adminForms__input"
+            name="category"
+            defaultValue={hotel.category}
+            ref={register}
+          >
+            <option> </option>
+            <option>Hotel</option>
+            <option>Guest houses</option>
+            <option>{`B&B`}</option>
+          </select>
+        </div>
+        <div className="adminForms__col1">
           <label className="adminForms__label">Image url</label>
           <input
             className="adminForms__input"
@@ -124,6 +140,7 @@ function EditHotel({ id }) {
             name="selfCatering"
             defaultChecked={hotel.selfCatering ? true : false}
             type="radio"
+            value={true}
             ref={register}
           />
 
@@ -132,6 +149,7 @@ function EditHotel({ id }) {
             className="adminForms__input--radio"
             name="selfCatering"
             type="radio"
+            value={false}
             defaultChecked={!hotel.selfCatering ? true : false}
             ref={register}
           />
@@ -140,6 +158,7 @@ function EditHotel({ id }) {
         <textarea
           className="adminForms__textarea"
           name="description"
+          defaultValue={hotel.description}
           placeholder="Enter description"
           ref={register}
         />

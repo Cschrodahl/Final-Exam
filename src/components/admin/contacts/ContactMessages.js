@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BASE_URL, headers } from "../../../constant/api";
 import OpenModal from "../../modal/OpenModal";
 import ViewMessage from "./ViewMessage";
+import Pagination from "../../pagination/Pagination";
 export default function ContactMessages() {
   const url = BASE_URL + "contacts/";
   const options = { headers };
   const [contacts, setContacts] = useState([]);
+
   useEffect(() => {
     fetch(url, options)
       .then((response) => response.json())
@@ -15,6 +17,15 @@ export default function ContactMessages() {
       .catch((error) => console.log(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [contactPerPage] = useState(6);
+
+  const indexOfLastItem = currentPage * contactPerPage;
+  const indexOfFirstItem = indexOfLastItem - contactPerPage;
+  const currentItems = contacts.slice(indexOfFirstItem, indexOfLastItem);
+  const goToPage = (page) => setCurrentPage(page);
+  const numberOfContacts = contacts.length;
   return (
     <>
       <table className="dashboardList">
@@ -27,7 +38,7 @@ export default function ContactMessages() {
         </thead>
         <tbody className="dashboardList__body">
           {contacts
-            ? contacts.map((contact) => {
+            ? currentItems.map((contact) => {
                 return (
                   <tr key={contact.id}>
                     <td>
@@ -45,6 +56,15 @@ export default function ContactMessages() {
             : null}
         </tbody>
       </table>
+      <Pagination
+        itemsPerPage={contactPerPage}
+        total={numberOfContacts}
+        goToPage={goToPage}
+        nextBtn={
+          indexOfLastItem <= numberOfContacts ? currentPage + 1 : currentPage
+        }
+        prevBtn={currentPage !== 1 ? currentPage - 1 : currentPage}
+      />
     </>
   );
 }

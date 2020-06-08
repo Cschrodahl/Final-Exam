@@ -54,7 +54,19 @@
     text-align: center;
   }
   &__text {
-    margin: auto;
+    margin: auto auto 10px;
     width: 80%;
+  }
+  @media #{$tablet} {
+    &__text {
+      width: 50%;
+      text-align: center;
+    }
+  }
+  @media #{$phone} {
+    &__text {
+      width: 80%;
+      text-align: center;
+    }
   }
 }

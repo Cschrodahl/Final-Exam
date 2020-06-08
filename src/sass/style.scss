@@ -15,14 +15,13 @@
 @import "page/_contact";
 @import "page/_establishmentDetail";
 @import "forms/_bookingForm.scss";
-html,
-body {
-  height: 100%;
-}
-body {
+
+.App {
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
-main {
-  flex: 1 0 auto;
+
+footer {
+  margin-top: auto;
 }
