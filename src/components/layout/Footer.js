@@ -18,9 +18,9 @@ function Footer() {
           <h3 className="footerContent__headers">Category</h3>
           <FooterNav
             destinationName={[
-              { page: "Hotels", link: "/booking#hotels" },
-              { page: "B&B", link: "/booking#b&b" },
-              { page: "Guesthouse", link: "/booking#guesthouse" },
+              { page: "Hotels", link: "/booking#Hotel" },
+              { page: "B&B", link: "/booking#B&B" },
+              { page: "Guesthouse", link: "/booking#Guest houses" },
             ]}
           />
         </div>

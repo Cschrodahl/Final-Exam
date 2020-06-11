@@ -11,22 +11,12 @@ function DashboardList({ listName }) {
     }
     adminNavRef.current.id = showMenu;
   };
-  /**<img
-        className="adminNavigation__toggle"
-        src={require("../../images/Icons/HouseMenu-01.png")}
-        onClick={() => {
-          let toggle = document.querySelector(".adminNavigation");
-          toggle =
-            toggle.style.display === "block"
-              ? (toggle.style.display = "none")
-              : (toggle.style.display = "block");
-          return toggle;
-        }}
-      /> */
+
   return (
     <>
       <img
         className="adminNavigation__toggle"
+        alt="admin Logo"
         src={require("../../images/Icons/HouseMenu-01.png")}
         onClick={() => {
           toggleAdminNav();

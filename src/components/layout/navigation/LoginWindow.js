@@ -5,16 +5,17 @@ import { AuthContext } from "../../../context/AuthContext";
 import Logout from "../../auth/Logout";
 function LoginWindow({ refs }) {
   const { registeredUser, user } = useContext(AuthContext);
-  /** document.addEventListener("mousedown", (e) => {
-    if (
-      !refs.current.contains(e.target) &&
-      refs.current.className === "topMenu__window--Active"
-    ) {
-      refs.current.className = "topMenu__window";
-    }
-  }); */
+
   return (
     <div ref={refs} className={`topMenu__window`}>
+      <span
+        className="topMenu__closeWindow"
+        onClick={() => {
+          refs.current.className = "topMenu__window";
+        }}
+      >
+        x
+      </span>
       {user ? (
         <>
           <h3 className="topMenu__userStatus">Admin</h3>

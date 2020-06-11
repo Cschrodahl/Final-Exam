@@ -22,7 +22,7 @@ export default function ViewMessage({ id }) {
   return (
     <div>
       <h4>{name}</h4>
-      <p>{createdAt}</p>
+      <p>{createdAt ? createdAt.split("T")[0] : null}</p>
       <p>{message}</p>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { BASE_URL, headers, PATCH } from "../../constant/api";
 import DeleteHotel from "./DeleteHotel";
@@ -11,7 +11,7 @@ function EditHotel({ id }) {
   };
 
   const history = useHistory();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
   const [hotel, setHotel] = useState(defaultState);
 
   const options = { headers };
@@ -26,7 +26,6 @@ function EditHotel({ id }) {
   }, []);
 
   async function onSubmit(data) {
-    console.log(data);
     const updateOptions = {
       headers,
       method: PATCH,
@@ -35,6 +34,10 @@ function EditHotel({ id }) {
     await fetch(fetchUrl, updateOptions);
     history.go();
   }
+  const selfCateringOptions = [
+    { value: true, label: "True" },
+    { value: false, label: "False" },
+  ];
 
   return (
     <>
@@ -89,6 +92,7 @@ function EditHotel({ id }) {
             <label className="adminForms__label">Google coordinate</label>
             <input
               className="adminForms__input"
+              step="any"
               name="lat"
               type="number"
               defaultValue={hotel.lat}
@@ -98,6 +102,7 @@ function EditHotel({ id }) {
           </div>
           <div className="adminForms__col2">
             <input
+              step="any"
               className="adminForms__input"
               name="lng"
               defaultValue={hotel.lng}
@@ -112,10 +117,10 @@ function EditHotel({ id }) {
           <select
             className="adminForms__input"
             name="category"
-            defaultValue={hotel.category}
+            value={hotel.category}
             ref={register}
           >
-            <option> </option>
+            <option>Select</option>
             <option>Hotel</option>
             <option>Guest houses</option>
             <option>{`B&B`}</option>
@@ -134,24 +139,17 @@ function EditHotel({ id }) {
         </div>
         <div className="adminForms__col1">
           <label className="adminForms__label">Self-catering</label>
-          <label className="adminForms__label--radio">True:</label>
-          <input
-            className="adminForms__input--radio"
+          <Controller
+            as={<input type="checkbox" options={selfCateringOptions} />}
+            control={control}
+            rules={{ required: false }}
+            onChange={([selected]) => {
+              if (!selected.target.checked)
+                return (selected.target.checked = false);
+              else return (selected.target.checked = true);
+            }}
             name="selfCatering"
-            defaultChecked={hotel.selfCatering ? true : false}
-            type="radio"
-            value={true}
-            ref={register}
-          />
-
-          <label className="adminForms__label--radio">False:</label>
-          <input
-            className="adminForms__input--radio"
-            name="selfCatering"
-            type="radio"
-            value={false}
-            defaultChecked={!hotel.selfCatering ? true : false}
-            ref={register}
+            checked={hotel.selfCatering === true}
           />
         </div>
         <label className="adminForms__label">Descritpion</label>
@@ -171,5 +169,25 @@ function EditHotel({ id }) {
     </>
   );
 }
+/**<label className="adminForms__label--radio">True:</label>
+          <input
+            className="adminForms__input--radio"
+            name="selfCatering"
+            checked={hotel.selfCatering === true}
+            onChange={([{ checked }]) => ({ checked })}
+            value={true}
+            type="radio"
+            ref={register}
+          />
 
+          <label className="adminForms__label--radio">False:</label>
+          <input
+            className="adminForms__input--radio"
+            name="selfCatering"
+            type="radio"
+            value={false}
+            checked={hotel.selfCatering === false}
+            onChange={([{ checked }]) => ({ checked })}
+            ref={register}
+          /> */
 export default EditHotel;

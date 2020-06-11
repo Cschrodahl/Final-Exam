@@ -8,7 +8,6 @@ header {
     display: inline-block;
     margin: auto;
     padding: 5px;
-    margin: 5px;
     color: #fff;
     width: 110px;
   }
@@ -28,18 +27,21 @@ header {
     &__link:hover {
       opacity: 0.5;
     }
+    &__closeWindow {
+      float: left;
+    }
     &__loginBtn {
       font-size: 18px;
-      background-color: $yellow;
+      background-color: $orange;
       padding: 5px;
       outline: none;
-      border: 1px solid $yellow;
+      border: 1px solid $orange;
       border-radius: 5px;
       color: #fff;
     }
     &__loginBtn:hover {
       cursor: pointer;
-      opacity: 0.7;
+      background-color: $orange-hover;
     }
     &__window {
       display: none;
@@ -98,7 +100,7 @@ header {
           width: 80%;
           left: 50%;
           -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+          transform: translate(-50%, 5%);
         }
       }
     }

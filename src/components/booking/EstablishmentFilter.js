@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 function EstablishmentFilter({ setFilterList }) {
   const { register, handleSubmit } = useForm();
+  const [checkUrlFilter] = useState(
+    decodeURI(window.location.hash.split("#")[1])
+  );
   function onchangeFilter(data) {
     setFilterList(data);
   }
-
   return (
     <form
       onChange={handleSubmit(onchangeFilter)}
@@ -17,6 +19,7 @@ function EstablishmentFilter({ setFilterList }) {
           ref={register}
           name="category"
           className="filterEstablishments__dropdown"
+          defaultValue={checkUrlFilter ? checkUrlFilter : null}
         >
           <option>Show all</option>
           <option>Hotel</option>

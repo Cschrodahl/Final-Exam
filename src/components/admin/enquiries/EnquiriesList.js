@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL, headers } from "../../../constant/api";
+import Pagination from "../../pagination/Pagination";
 export default function EnquiriesList() {
   const url = BASE_URL + "enquiries/";
   const options = { headers };
@@ -13,7 +14,14 @@ export default function EnquiriesList() {
       .catch((error) => console.log(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(enquiries);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [enquiriesPerPage] = useState(6);
+
+  const indexOfLastItem = currentPage * enquiriesPerPage;
+  const indexOfFirstItem = indexOfLastItem - enquiriesPerPage;
+  const currentItems = enquiries.slice(indexOfFirstItem, indexOfLastItem);
+  const goToPage = (page) => setCurrentPage(page);
+  const numberOfEnquiries = enquiries.length;
   return (
     <>
       <table className="dashboardList">
@@ -28,7 +36,7 @@ export default function EnquiriesList() {
         </thead>
         <tbody className="dashboardList__body">
           {enquiries
-            ? enquiries.map((enquiries) => {
+            ? currentItems.map((enquiries) => {
                 const {
                   establishmentId,
                   name,
@@ -54,6 +62,15 @@ export default function EnquiriesList() {
             : null}
         </tbody>
       </table>
+      <Pagination
+        itemsPerPage={enquiriesPerPage}
+        total={numberOfEnquiries}
+        goToPage={goToPage}
+        nextBtn={
+          indexOfLastItem <= numberOfEnquiries ? currentPage + 1 : currentPage
+        }
+        prevBtn={currentPage !== 1 ? currentPage - 1 : currentPage}
+      />
     </>
   );
 }

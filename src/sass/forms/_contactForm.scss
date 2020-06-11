@@ -1,26 +1,34 @@
 .contactForm {
+  width: 70%;
+  margin: auto;
   &__label {
     height: 30px;
   }
   &__input {
-    height: 30px;
-    width: 90%;
+    height: 40px;
+    width: 100%;
     display: block;
     padding-left: 5px;
-    margin: 10px 0;
+    margin: 15px 0;
   }
   &__textarea {
     display: block;
-    width: 100%;
+    width: 90%;
     height: 100px;
   }
   &__btn {
-    width: 100%;
+    width: 91%;
     height: 40px;
     margin: 20px auto;
-    background-color: $yellow;
+    background-color: $orange;
     color: $white;
-    border: 1px solid $yellow;
+    border: 1px solid $orange;
     border-radius: 5px;
+  }
+  @media #{$tablet}, #{$phone} {
+    &__btn,
+    &__textarea {
+      width: 100%;
+    }
   }
 }

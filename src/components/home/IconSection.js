@@ -9,7 +9,7 @@ function IconSection() {
           <div className="iconSection__icon">
             <img
               src={require("../../images/Icons/home_icon-01.png")}
-              alt="remember to add this"
+              alt="Background vector created by freepik - www.freepik.com"
             />
           </div>
           <h3 className="iconSection__h3">Find you accommodation</h3>
@@ -22,7 +22,7 @@ function IconSection() {
           <div className="iconSection__icon">
             <img
               src={require("../../images/Icons/home_icon-02.png")}
-              alt="remember to add this"
+              alt="Background vector created by freepik - www.freepik.com"
             />
           </div>
           <h3 className="iconSection__h3">Make a request</h3>
@@ -35,7 +35,7 @@ function IconSection() {
           <div className="iconSection__icon">
             <img
               src={require("../../images/Icons/home_icon-03.png")}
-              alt="remember to add this"
+              alt="Background vector created by freepik - www.freepik.com"
             />
           </div>
           <h3 className="iconSection__h3">Visit you new favorite city</h3>

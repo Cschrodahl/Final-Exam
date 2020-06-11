@@ -5,7 +5,7 @@
   height: 6vw;
   display: flex;
   &__buttons {
-    background-color: $yellow;
+    background-color: $orange;
     color: $white;
     text-decoration: none;
     width: 25%;
@@ -14,6 +14,9 @@
     margin: -3% auto;
     text-align: center;
     z-index: 1;
+  }
+  &__buttons:hover {
+    background-color: $orange-hover;
   }
   @media #{$tablet} {
     height: 8vw;

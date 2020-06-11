@@ -1,10 +1,10 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { BASE_URL, headers } from "../../constant/api";
 
 function AddHotel() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control } = useForm();
 
   const history = useHistory();
 
@@ -21,7 +21,10 @@ function AddHotel() {
 
     history.go();
   }
-
+  const selfCateringOptions = [
+    { value: true, label: "True" },
+    { value: false, label: "False" },
+  ];
   return (
     <form className="adminForms" onSubmit={handleSubmit(onSubmit)}>
       <h3>Add Hotel</h3>
@@ -69,6 +72,7 @@ function AddHotel() {
         <div className="adminForms__col2">
           <label className="adminForms__label">Google coordinate</label>
           <input
+            step="any"
             className="adminForms__input"
             name="lat"
             type="number"
@@ -78,6 +82,7 @@ function AddHotel() {
         </div>
         <div className="adminForms__col2">
           <input
+            step="any"
             className="adminForms__input"
             name="lng"
             type="number"
@@ -98,15 +103,28 @@ function AddHotel() {
       </div>
       <div className="adminForms__col1">
         <label className="adminForms__label">Category</label>
-        <input
-          className="adminForms__input"
-          name="category"
-          type="text"
-          placeholder="enter category"
-          ref={register}
+        <select className="adminForms__input" name="category" ref={register}>
+          <option>Select</option>
+          <option>Hotel</option>
+          <option>Guest houses</option>
+          <option>{`B&B`}</option>
+        </select>
+      </div>
+      <div className="adminForms__col1">
+        <label className="adminForms__label">Self-catering</label>
+        <Controller
+          as={<input type="checkbox" options={selfCateringOptions} />}
+          control={control}
+          rules={{ required: false }}
+          onChange={([selected]) => {
+            if (!selected.target.checked)
+              return (selected.target.checked = false);
+            else return (selected.target.checked = true);
+          }}
+          name="selfCatering"
+          checked={false}
         />
       </div>
-
       <label className="adminForms__label">Descritpion</label>
       <textarea
         className="adminForms__textarea"

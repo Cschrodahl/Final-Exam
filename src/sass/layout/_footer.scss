@@ -23,12 +23,15 @@ footer {
       width: 60%;
     }
     &__button {
-      border: solid 1px $yellow;
-      background-color: $yellow;
+      border: solid 1px $orange;
+      background-color: $orange;
       color: $white;
       border-radius: 0 5px 5px 0;
       vertical-align: middle;
       padding: 7px 5px;
+    }
+    &__button:hover {
+      background-color: $orange-hover;
     }
     @media #{$tablet}, #{$phone} {
       padding: 5px;

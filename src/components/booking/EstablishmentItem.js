@@ -15,7 +15,7 @@ function EstablishmentItem({
       <h4>{title}</h4>
       <p>Max number of people {maxGuests}</p>
       <p>Price per night {price}$</p>
-      <span>{category}</span>
+      <p className="bookingList__span">{category}</p>
     </NavLink>
   );
 }

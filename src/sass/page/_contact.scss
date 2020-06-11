@@ -3,10 +3,14 @@
     padding: 10px;
     color: $white;
     margin: 10px auto;
-    width: 80%;
-    background-color: $yellow;
-    border: solid $yellow 1px;
+    width: 60%;
+    background-color: $orange;
+    border: solid $orange 1px;
     border-radius: 5px;
+  }
+  &__headers {
+    font-size: 30px;
+    margin: 0;
   }
   &__link {
     display: block;
@@ -23,12 +27,27 @@
     vertical-align: middle;
   }
   &__img {
-    width: 70px;
+    width: 90%;
     display: block;
     height: auto;
     margin: auto;
   }
+  &__img:hover,
+  &__link:hover {
+    background-color: $orange-hover;
+  }
+  @media #{$tablet} {
+    &__img {
+      width: 40%;
+    }
+  }
+  @media #{$phone} {
+    &__img {
+      width: 70%;
+    }
+  }
 }
+
 @media #{$tablet}, #{$phone} {
   .contactInformationBox {
     &__box {

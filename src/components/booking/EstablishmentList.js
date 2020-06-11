@@ -5,7 +5,15 @@ import EstablishmentItem from "./EstablishmentItem";
 import EstablishmentFilter from "./EstablishmentFilter";
 function EstablishmentList() {
   const { filteredHotels } = useContext(HotelContext);
-  const [filterHotels, setFilterHotels] = useState();
+  const [filterHotels, setFilterHotels] = useState(
+    window.location.hash.split("#")[1]
+      ? {
+          category: decodeURI(window.location.hash.split("#")[1]),
+          price: "",
+          maxGuests: "",
+        }
+      : null
+  );
 
   const restult = filteredHotels.filter((a) => {
     return (

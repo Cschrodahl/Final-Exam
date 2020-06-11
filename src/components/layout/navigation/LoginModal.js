@@ -20,6 +20,7 @@ function LoginModal({ loginWindow }) {
       <button className="topMenu__loginBtn" onClick={toggleLoginWindow}>
         {user ? "Settings" : "Login"}
       </button>
+
       <LoginWindow refs={modalwindow} />
     </>
   );

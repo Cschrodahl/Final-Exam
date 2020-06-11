@@ -1,21 +1,23 @@
 .introBannerHomePage {
   height: 600px;
+  background-image: url("../../images/home-header.jpg");
 }
 .introBannersubSites {
   height: 300px;
+  background-image: url("../../images/subsite-header.jpg");
 }
 
 .introBanner {
-  background-image: url("../../images/home-header.jpg");
   width: 100%;
   position: relative;
   &__content {
     margin: 0;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
+    width: 50%;
+    z-index: 2;
   }
   &__searchField {
     text-align: center;
@@ -29,7 +31,7 @@
   .search {
     &__input {
       vertical-align: middle;
-      width: 80%;
+      width: 60%;
       padding: 14px 5px;
       border: $grey 1px solid;
       border-radius: 5px 0px 0px 5px;
@@ -37,9 +39,9 @@
     &__button {
       padding: 10px;
       vertical-align: middle;
-      background-color: $yellow;
+      background-color: $orange;
       color: $white;
-      border: $yellow 1px solid;
+      border: $orange 1px solid;
       border-radius: 0px 5px 5px 0px;
     }
     &__icon {
@@ -47,15 +49,29 @@
     }
     &__button:hover {
       cursor: pointer;
-      opacity: 0.7;
+      background-color: $orange-hover;
     }
     &__result {
       background-color: $white;
-      width: 85%;
+      width: 63%;
       border: solid 1px $grey;
       border-radius: 0px 0px 5px 5px;
       margin: auto;
-      padding: 15px;
+      padding: 0 15px;
+    }
+    &__links {
+      display: block;
+      padding: 10px;
+      text-align: center;
+      border-bottom: solid $grey 1px;
+    }
+    @media #{$phone}, #{$tablet} {
+      &__input {
+        width: 80%;
+      }
+      &__result {
+        width: 84%;
+      }
     }
   }
 }
