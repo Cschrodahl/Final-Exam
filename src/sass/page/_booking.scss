@@ -21,6 +21,14 @@
     background-color: $grey;
     padding: 5px;
   }
+  @media #{$phone} {
+    &__col {
+      img {
+        width: 200px;
+        height: 150px;
+      }
+    }
+  }
 }
 .filterEstablishments {
   background-color: $orange;

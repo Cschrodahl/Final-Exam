@@ -39,7 +39,7 @@ function EstablishmentDetails() {
   return (
     <>
       <Banner backgroundImageSize="introBannersubSites" />
-      <section className="container row row__direction--column establishmentDetail">
+      <section className="container row row__direction--columnPhone establishmentDetail">
         <div className="col2">
           <img
             className="establishmentDetail__image"
@@ -77,13 +77,9 @@ function EstablishmentDetails() {
         {hotel ? (
           <iframe
             title="Establishment location"
-            width="100%"
-            height="300"
+            className="establishmentDetail__map"
             src={googleMapUrl}
-            frameborder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
           ></iframe>
         ) : null}
       </section>

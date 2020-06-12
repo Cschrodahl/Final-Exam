@@ -45,7 +45,11 @@
     }
   }
 }
-
+@media #{$phone} {
+  .row__direction--columnPhone {
+    flex-direction: column;
+  }
+}
 @media #{$tablet}, #{$phone} {
   .container {
     width: 95%;

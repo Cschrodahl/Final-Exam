@@ -49,7 +49,7 @@ function Footer() {
           <button className="footerContent__button">Subscribe</button>
         </div>
       </section>
-      <div className="footerCopy">copyright</div>
+      <div className="footerCopy">©2020 Made by Christian Schrodahl</div>
     </footer>
   );
 }

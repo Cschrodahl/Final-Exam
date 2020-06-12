@@ -38,7 +38,9 @@ function EditHotel({ id }) {
     { value: true, label: "True" },
     { value: false, label: "False" },
   ];
-
+  const [selectCurrentTarget, setSelectCurrentTarget] = useState(
+    hotel.category
+  );
   return (
     <>
       <form className="adminForms" onSubmit={handleSubmit(onSubmit)}>
@@ -117,8 +119,11 @@ function EditHotel({ id }) {
           <select
             className="adminForms__input"
             name="category"
-            value={hotel.category}
             ref={register}
+            value={!selectCurrentTarget ? hotel.category : selectCurrentTarget}
+            onChange={(e) => {
+              return setSelectCurrentTarget(e.currentTarget.value);
+            }}
           >
             <option>Select</option>
             <option>Hotel</option>

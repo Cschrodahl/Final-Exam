@@ -22,6 +22,13 @@
   &__locationHeader {
     text-align: center;
   }
+  &__map {
+    width: 95%;
+    height: 300px;
+    margin: auto;
+    display: block;
+    border: none;
+  }
   @media #{$phone}, #{$tablet} {
     padding: 20px 0 0 0;
     &__content {

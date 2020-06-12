@@ -1,11 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-function SearchField({ handleSearch, result }) {
+let inputEmpty = true;
+function SearchField({ handleSearch, results }) {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
-
   async function onSubmit(data) {
     history.push("/booking");
   }
@@ -20,7 +20,10 @@ function SearchField({ handleSearch, result }) {
           className="search__input"
           name="value"
           placeholder="Establishments, hotels"
-          onChange={(event) => handleSearch(event)}
+          onChange={(event) => {
+            handleSearch(event);
+            inputEmpty = false;
+          }}
           ref={register}
         />
         <button className="search__button" type="submit">
@@ -31,19 +34,21 @@ function SearchField({ handleSearch, result }) {
           />
         </button>
       </form>
-      <div className={result.length > 0 ? "search__result" : null}>
-        {result.map((Result, index) => {
-          return (
-            <NavLink
-              className="search__links"
-              to={`booking/${Result.id}`}
-              key={index}
-            >
-              {Result.name}
-            </NavLink>
-          );
-        })}
-      </div>
+      {inputEmpty === false ? (
+        <div className={results.length > 0 ? "search__result" : null}>
+          {results.map((result, index) => {
+            return (
+              <Link
+                className="search__links"
+                to={`/booking/${result.id}`}
+                key={index}
+              >
+                {result.name}
+              </Link>
+            );
+          })}
+        </div>
+      ) : null}
     </>
   );
 }

@@ -32,11 +32,7 @@ function HotelContextProvider({ children }) {
       return false;
     });
     setFilteredHotels(filteredArray);
-    if (searchValue !== "") {
-      setFilteredHotelsGlobal(filteredArray);
-    } else {
-      setFilteredHotelsGlobal([]);
-    }
+    setFilteredHotelsGlobal(searchValue !== "" ? filteredArray : []);
   };
 
   return (
