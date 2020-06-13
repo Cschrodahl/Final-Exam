@@ -21,9 +21,13 @@ export default function ViewMessage({ id }) {
   const { name, message, createdAt } = Message;
   return (
     <div>
-      <h4>{name}</h4>
-      <p>{createdAt ? createdAt.split("T")[0] : null}</p>
-      <p>{message}</p>
+      <h4>From: {name}</h4>
+      <p>
+        <b>Date:</b> {createdAt ? createdAt.split("T")[0] : null}
+      </p>
+      <p>
+        <b>Message:</b> {message}
+      </p>
     </div>
   );
 }

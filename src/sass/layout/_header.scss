@@ -44,17 +44,14 @@ header {
       background-color: $orange-hover;
     }
     &__window {
-      display: none;
-      &--Active {
-        display: block;
-        position: fixed;
-        right: 5%;
-        width: 200px;
-        height: auto;
-        border: $grey solid 1px;
-        padding: 10px;
-        background-color: $white;
-      }
+      display: block;
+      position: fixed;
+      right: 5%;
+      width: 200px;
+      height: auto;
+      border: $grey solid 1px;
+      padding: 10px;
+      background-color: $white;
     }
     &__userStatus {
       text-align: center;
@@ -95,13 +92,11 @@ header {
         margin: auto;
       }
       &__window {
-        &--Active {
-          position: absolute;
-          width: 80%;
-          left: 50%;
-          -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, 5%);
-        }
+        position: absolute;
+        width: 80%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, 5%);
       }
     }
     .hamburgerNav {

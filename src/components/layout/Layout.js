@@ -17,7 +17,7 @@ import Contact from "../contact/Contact";
 import ContactAdmin from "../admin/contacts/Contacts";
 import EnquiriesDashboard from "../admin/enquiries/EnquiriesDashboard";
 import { HotelContextProvider } from "../../context/HotelContext";
-function Layout({ ref, activeId }) {
+function Layout({ activeId }) {
   activeId = "";
   const navRef = useRef(null);
   const toggleNav = (e) => {

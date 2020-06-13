@@ -33,6 +33,7 @@ export default function ContactMessages() {
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Date</th>
             <th>Message</th>
           </tr>
         </thead>
@@ -43,12 +44,13 @@ export default function ContactMessages() {
                   <tr key={contact.id}>
                     <td>
                       <OpenModal
-                        className="dashboardList__editBtn"
+                        buttonClassName="dashboardList__editBtn"
                         buttonText={contact.name}
                         modalContent={<ViewMessage id={contact.id} />}
                       />
                     </td>
                     <td>{contact.email}</td>
+                    <td>{contact.createdAt.split("T")[0]}</td>
                     <td>{contact.message}</td>
                   </tr>
                 );

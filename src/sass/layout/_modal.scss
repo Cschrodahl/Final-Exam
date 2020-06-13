@@ -20,4 +20,9 @@
     padding: 10px;
     border-radius: 5px;
   }
+  @media #{$phone} {
+    width: 90%;
+    top: 2%;
+    left: 2%;
+  }
 }

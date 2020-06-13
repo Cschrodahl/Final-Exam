@@ -47,9 +47,21 @@
     border: solid $orange 1px;
     border-radius: 5px;
   }
+  &__delete {
+    padding: 10px;
+    background-color: #e61923;
+    color: $white;
+    border: 1px solid #e61923;
+    border-radius: 5px;
+    float: right;
+  }
   @media #{$phone} {
     &__col1 {
       width: 100%;
+    }
+    &__col2 {
+      display: block;
+      width: 95%;
     }
   }
 }

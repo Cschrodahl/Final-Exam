@@ -47,11 +47,7 @@ export default function EnquiriesList() {
 
                 return (
                   <tr key={enquiries.id}>
-                    <td>
-                      <button className="dashboardList__editBtn">
-                        {establishmentId}
-                      </button>
-                    </td>
+                    <td>{establishmentId}</td>
                     <td>{name}</td>
                     <td>{email}</td>
                     <td>{checkIn.split("T")[0]}</td>
