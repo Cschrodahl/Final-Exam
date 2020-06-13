@@ -4,7 +4,7 @@ import { BASE_URL, headers } from "../constant/api";
 const HotelContext = createContext();
 
 function HotelContextProvider({ children }) {
-  const [hotelsGet, setHotelsGet] = useState([""]);
+  const [getHotels, setHotels] = useState([""]);
 
   const url = BASE_URL + "establishments/";
   const options = { headers };
@@ -14,7 +14,7 @@ function HotelContextProvider({ children }) {
     fetch(url, options)
       .then((response) => response.json())
       .then((json) => {
-        setHotelsGet(json);
+        setHotels(json);
         setFilteredHotels(json);
       })
       .catch((error) => console.log(error));
@@ -24,7 +24,7 @@ function HotelContextProvider({ children }) {
   const filterResult = function (e) {
     const searchValue = e.target.value.toLowerCase();
 
-    const filteredArray = hotelsGet.filter(function (char) {
+    const filteredArray = getHotels.filter(function (char) {
       const lowerCaseName = char.name.toLowerCase();
       if (lowerCaseName.startsWith(searchValue)) {
         return true;
@@ -38,7 +38,7 @@ function HotelContextProvider({ children }) {
   return (
     <HotelContext.Provider
       value={{
-        hotelsGet,
+        getHotels,
         filterResult,
         filteredHotels,
         filteredHotelsGlobal,

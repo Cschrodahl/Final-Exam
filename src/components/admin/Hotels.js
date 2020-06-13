@@ -6,15 +6,15 @@ import AddHotel from "./AddHotel";
 import OpenModal from "../modal/OpenModal";
 
 function Hotels() {
-  const { hotelsGet } = useContext(HotelContext);
+  const { getHotels } = useContext(HotelContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [establishmentsPerPage] = useState(6);
 
   const indexOfLastItem = currentPage * establishmentsPerPage;
   const indexOfFirstItem = indexOfLastItem - establishmentsPerPage;
-  const currentItems = hotelsGet.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = getHotels.slice(indexOfFirstItem, indexOfLastItem);
   const goToPage = (page) => setCurrentPage(page);
-  const numberOfEstablishments = hotelsGet.length;
+  const numberOfEstablishments = getHotels.length;
   return (
     <>
       <OpenModal buttonText="Create new" modalContent={<AddHotel />} />
@@ -60,10 +60,5 @@ function Hotels() {
     </>
   );
 }
-/**<TableList
-        page={"hotels"}
-        tableHead={["Title", "Email", "Price", "Description"]}
-        tableContentList={currentItems}
-        itemKeys={["name", "email", "price", "description"]}
-      /> */
+
 export default Hotels;

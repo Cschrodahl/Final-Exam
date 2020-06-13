@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../context/AuthContext";
 import * as yup from "yup";
-import ErrorMessage from "../forms/ErrorMessage";
+import ErrorMessage from "./ErrorMessage";
 
 function Login() {
   const { userLogin } = useContext(AuthContext);
