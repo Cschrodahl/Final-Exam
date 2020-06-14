@@ -174,25 +174,5 @@ function EditHotel({ id }) {
     </>
   );
 }
-/**<label className="adminForms__label--radio">True:</label>
-          <input
-            className="adminForms__input--radio"
-            name="selfCatering"
-            checked={hotel.selfCatering === true}
-            onChange={([{ checked }]) => ({ checked })}
-            value={true}
-            type="radio"
-            ref={register}
-          />
 
-          <label className="adminForms__label--radio">False:</label>
-          <input
-            className="adminForms__input--radio"
-            name="selfCatering"
-            type="radio"
-            value={false}
-            checked={hotel.selfCatering === false}
-            onChange={([{ checked }]) => ({ checked })}
-            ref={register}
-          /> */
 export default EditHotel;

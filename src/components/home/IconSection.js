@@ -12,10 +12,12 @@ function IconSection() {
               alt="Background vector created by freepik - www.freepik.com"
             />
           </div>
-          <h3 className="iconSection__h3">Find you accommodation</h3>
+          <h3 className="iconSection__h3">Find your accommodation</h3>
           <p className="iconSection__text">
-            Lorem ipsum dolor sit amet, consectetuer ad. Lorem ipsum lore
-            teuteer, psum lore teuteer
+            We'll help you find suitable accommodations that meet your
+            standards. With a range of hotels throughout Bergen, we are sure to
+            find something at your destination, either it's a hotel, B&B or a
+            guesthouse.
           </p>
         </div>
         <div className="col3 iconSection__box">
@@ -27,8 +29,8 @@ function IconSection() {
           </div>
           <h3 className="iconSection__h3">Make a request</h3>
           <p className="iconSection__text">
-            Lorem ipsum dolor sit amet, consectetuer ad. Lorem ipsum lore
-            teuteer, psum lore teuteer
+            To be able to explore our beautiful city, please send us a request
+            to book your accomodation.
           </p>
         </div>
         <div className="col3 iconSection__box">
@@ -40,8 +42,9 @@ function IconSection() {
           </div>
           <h3 className="iconSection__h3">Visit you new favorite city</h3>
           <p className="iconSection__text">
-            Lorem ipsum dolor sit amet, consectetuer ad. Lorem ipsum lore
-            teuteer, psum lore teuteer
+            Please take a look at what Bergen has to offer. One look and you'll
+            be hooked. The beautiful nature, the food and the people. Will make
+            Bergen your new favorite city.
           </p>
         </div>
       </div>

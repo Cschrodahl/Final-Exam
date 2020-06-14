@@ -139,34 +139,5 @@ function AddHotel() {
     </form>
   );
 }
-/**<div className="adminForms__col1">
-        <label className="adminForms__label">Category</label>
-        <input
-          className="adminForms__input"
-          name="category"
-          type="text"
-          placeholder="enter category"
-          ref={register}
-        />
-      </div> 
-      
-      <div className="adminForms__col1">
-        <label className="adminForms__label">Self-catering</label>
-        <label className="adminForms__label--radio">True:</label>
-        <input
-          className="adminForms__input--radio"
-          name="selfCatering"
-          type="radio"
-          ref={register}
-        />
 
-        <label className="adminForms__label--radio">False:</label>
-        <input
-          className="adminForms__input--radio"
-          name="selfCatering"
-          type="radio"
-          ref={register}
-          defaultChecked
-        />
-      </div>*/
 export default AddHotel;
